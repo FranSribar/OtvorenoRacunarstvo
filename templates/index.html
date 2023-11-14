@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index page</title>
+    <meta name="author" content="Fran Šribar">
+    <meta name="decription" content="Skup podataka koji sadrži neke od Netflix serija">
+    <meta name="keywords" content="shows, actors">
+    <meta name="language" content="hrvatski, engleski">
+    <meta name="licence" content="Creative Commons Zero v1.0 Universal">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/styles/index.css">
+</head>
+<body>
+   <h1> Netflix serije </h1>
+
+   <h3>Skup podataka sadrži neke od TV serija koje se mogu pronaći na Netfix streaming servisu.
+     Unutar skupa podataka nalaze se općenite informacije odabranih serija.</h3>
+    <ul>
+        <li><a href="../static/data/shows.csv" download><span class="preuzmi">CSV Format</span></a></li>
+        <li><a href="../static/data/shows.json" download>JSON Format</a></li>
+    </ul>
+
+    <button id="redirectToDatatable">Go to Datatable Page</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#redirectToDatatable').on('click', function() {
+                window.location.href = '/datatable';
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+title,genre,release_year,imdb_grade,creator,number_of_episodes,number_of_seasons,name,surname,year_of_birth,gender
+Mindhunter,Crime,2017,8.6,Joe Penhall,19,2,Johnatan,Groff,1985,MALE
+Mindhunter,Crime,2017,8.6,Joe Penhall,19,2,Holt,McCallany,1963,MALE
+Mindhunter,Crime,2017,8.6,Joe Penhall,19,2,Anna,Torv,1979,FEMALE
+The Sinner,Crime,2017,7.9,Derek Simonds,32,4,Bill,Pullman,1953,MALE
+House of Cards,Drama,2013,8.7,Beau Willimon,73,6,Kevin,Spacey,1959,MALE
+House of Cards,Drama,2013,8.7,Beau Willimon,73,6,Michel,Gill,1960,MALE
+House of Cards,Drama,2013,8.7,Beau Willimon,73,6,Robin,Wright,1966,FEMALE
+The Haunting of Hill House,Horror,2018,8.6,Mike Flanagan,10,1,Michiel,Huisman,1981,MALE
+The Haunting of Hill House,Horror,2018,8.6,Mike Flanagan,10,1,Carla,Gugino,1971,FEMALE
+The Haunting of Hill House,Horror,2018,8.6,Mike Flanagan,10,1,Henry,Thomas,1971,MALE
+Peaky Blinders,Crime,2013,8.8,Otto Bathurst,36,6,Cillian,Murphy,1976,MALE
+Peaky Blinders,Crime,2013,8.8,Otto Bathurst,36,6,Paul,Anderson,1978,MALE
+Designated Survivor,Action,2016,7.5,David Guggenheim,53,3,Kiefer,Sutherland,1966,MALE
+Money Heist,Action,2017,8.2,Alex Pina,41,5,Alvaro,Morte,1975,MALE
+Money Heist,Action,2017,8.2,Alex Pina,41,5,Itziar,Otuno,1974,FEMALE
+Money Heist,Action,2017,8.2,Alex Pina,41,5,Pedro,Alonso,1972,MALE
+Bodies,Crime,2023,7.5,Paul Tomalin,8,1,Jacob,Fortune-Lloyd,1988,MALE
+Bodies,Crime,2023,7.5,Paul Tomalin,8,1,Shira,Haas,1995,FEMALE
+Lupin,Action,2021,7.5,George Kay,17,3,Omar,Sy,1978,MALE
+The Witcher,Adventure,2019,8.0,Lauren Schmidt Hissrich,25,3,Freya,Allan,2001,FEMALE
+The Witcher,Adventure,2019,8.0,Lauren Schmidt Hissrich,25,3,Henry,Cavill,1983,MALE
+13 Reasons Why,Drama,2017,7.5,Brian Yorkey,49,4,Dylan,Minnette,1996,MALE
+13 Reasons Why,Drama,2017,7.5,Brian Yorkey,49,4,Katherine,Langford,1996,FEMALE
+13 Reasons Why,Drama,2017,7.5,Brian Yorkey,49,4,Christian,Navarro,1991,MALE
