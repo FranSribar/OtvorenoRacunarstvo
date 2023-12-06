@@ -1,0 +1,1024 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "https://github.com/FranSribar/OtvorenoRacunarstvo/blob/main/shows.json",
+    "type": "array",
+    "title": "Netflix Serije",
+    "description": "Skup Netflix serija za otvoreno računarstvo.",
+    "items": {
+        "type": "object",
+        "title": "Serija",
+        "description": "Objekt koji sadrži sve podatke o jednoj seriji",
+        "required": [
+            "title",
+            "genre",
+            "release_year",
+            "imdb_grade",
+            "creator",
+            "number_of_episodes",
+            "number_of_seasons",
+            "actors"
+        ],
+        "properties": {
+            "Naziv serije": {
+                "type": "string",
+                "title": "Naziv serije",
+                "description": "Naziv serije",
+                "examples": [
+                    "The Haunting of Hill House",
+                    "The Witcher",
+                    "Designated Survivor",
+                    "The Sinner",
+                    "13 Reasons Why",
+                    "Lupin",
+                    "Money Heist",
+                    "House of Cards",
+                    "Mindhunter",
+                    "Peaky Blinders",
+                    "Bodies"
+                ]
+            },
+            "genre": {
+                "type": "string",
+                "title": "genre",
+                "description": "Žanr serije",
+                "examples": [
+                    "Horror",
+                    "Adventure",
+                    "Action",
+                    "Crime",
+                    "Drama"
+                ]
+            },
+            "release_year": {
+                "type": "integer",
+                "title": "Release year",
+                "description": "Godina izlaska serije",
+                "examples": [
+                    2018,
+                    2019,
+                    2016,
+                    2017,
+                    2021,
+                    2013,
+                    2023
+                ]
+            },
+            "imdb_grade": {
+                "type": "number",
+                "title": "IMDB Grade",
+                "description": "IMDB ocjena",
+                "examples": [
+                    8.6,
+                    8.0,
+                    7.5,
+                    7.9,
+                    8.2,
+                    8.7,
+                    8.8
+                ]
+            },
+            "creator": {
+                "type": "string",
+                "title": "Creator",
+                "description": "Kreator serije",
+                "examples": [
+                    "Mike Flanagan",
+                    "Lauren Schmidt Hissrich",
+                    "David Guggenheim",
+                    "Derek Simonds",
+                    "Brian Yorkey",
+                    "George Kay",
+                    "Alex Pina",
+                    "Beau Willimon",
+                    "Joe Penhall",
+                    "Otto Bathurst",
+                    "Paul Tomalin"
+                ]
+            },
+            "number_of_episodes": {
+                "type": "integer",
+                "title": "Number Of Episodes",
+                "description": "Broj epizoda serije",
+                "examples": [
+                    10,
+                    25,
+                    53,
+                    32,
+                    49,
+                    17,
+                    41,
+                    73,
+                    19,
+                    36,
+                    8
+                ]
+            },
+            "number_of_seasons": {
+                "type": "integer",
+                "title": "Number Of Seasons",
+                "description": "Broj sezona serije",
+                "examples": [
+                    1,
+                    3,
+                    4,
+                    5,
+                    6,
+                    2
+                ]
+            },
+            "actors": {
+                "type": "array",
+                "title": "Actors",
+                "description": "Glumci",
+                "items": {
+                    "type": "object",
+                    "title": "Glumac",
+                    "description": "Objekt koji sadrži sve podatke o jednom glumcu.",
+                    "required": [
+                        "name",
+                        "surname",
+                        "year_of_birth",
+                        "gender"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "title": "Name",
+                            "description": "Ime glumca",
+                            "examples": [
+                                "Michiel",
+                                "Carla",
+                                "Henry",
+                                "Freya",
+                                "Kiefer",
+                                "Bill",
+                                "Dylan",
+                                "Katherine",
+                                "Christian",
+                                "Omar",
+                                "Alvaro",
+                                "Itziar",
+                                "Pedro",
+                                "Kevin",
+                                "Michel",
+                                "Robin",
+                                "Johnatan",
+                                "Holt",
+                                "Anna",
+                                "Cillian",
+                                "Paul",
+                                "Jacob",
+                                "Shira"
+                            ]
+                        },
+                        "surname": {
+                            "type": "string",
+                            "title": "Surname",
+                            "description": "Prezime glumca",
+                            "examples": [
+                                "Huisman",
+                                "Gugino",
+                                "Thomas",
+                                "Allan",
+                                "Cavill",
+                                "Sutherland",
+                                "Pullman",
+                                "Minnette",
+                                "Langford",
+                                "Navarro",
+                                "Sy",
+                                "Morte",
+                                "Otuno",
+                                "Alonso",
+                                "Spacey",
+                                "Gill",
+                                "Wright",
+                                "Groff",
+                                "McCallany",
+                                "Torv",
+                                "Murphy",
+                                "Anderson",
+                                "Fortune-Lloyd",
+                                "Haas"
+                            ]
+                        },
+                        "year_of_birth": {
+                            "type": "integer",
+                            "title": "Year of Birth",
+                            "description": "Godina rođenja glumca",
+                            "examples": [
+                                1981,
+                                1971,
+                                2001,
+                                1983,
+                                1966,
+                                1953,
+                                1996,
+                                1991,
+                                1978,
+                                1975,
+                                1974,
+                                1972,
+                                1959,
+                                1960,
+                                1985,
+                                1963,
+                                1979,
+                                1976,
+                                1988,
+                                1995
+                            ]
+                        },
+                        "gender": {
+                            "type": "string",
+                            "title": "Gender",
+                            "description": "Spol glumca",
+                            "examples": [
+                                "MALE",
+                                "FEMALE"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "name": "Michiel",
+                        "surname": "Huisman",
+                        "year_of_birth": 1981,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Carla",
+                        "surname": "Gugino",
+                        "year_of_birth": 1971,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Henry",
+                        "surname": "Thomas",
+                        "year_of_birth": 1971,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Freya",
+                        "surname": "Allan",
+                        "year_of_birth": 2001,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Henry",
+                        "surname": "Cavill",
+                        "year_of_birth": 1983,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Kiefer",
+                        "surname": "Sutherland",
+                        "year_of_birth": 1966,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Bill",
+                        "surname": "Pullman",
+                        "year_of_birth": 1953,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Dylan",
+                        "surname": "Minnette",
+                        "year_of_birth": 1996,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Katherine",
+                        "surname": "Langford",
+                        "year_of_birth": 1996,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Christian",
+                        "surname": "Navarro",
+                        "year_of_birth": 1991,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Omar",
+                        "surname": "Sy",
+                        "year_of_birth": 1978,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Alvaro",
+                        "surname": "Morte",
+                        "year_of_birth": 1975,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Itziar",
+                        "surname": "Otuno",
+                        "year_of_birth": 1974,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Pedro",
+                        "surname": "Alonso",
+                        "year_of_birth": 1972,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Kevin",
+                        "surname": "Spacey",
+                        "year_of_birth": 1959,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Michel",
+                        "surname": "Gill",
+                        "year_of_birth": 1960,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Robin",
+                        "surname": "Wright",
+                        "year_of_birth": 1966,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Johnatan",
+                        "surname": "Groff",
+                        "year_of_birth": 1985,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Holt",
+                        "surname": "McCallany",
+                        "year_of_birth": 1963,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Anna",
+                        "surname": "Torv",
+                        "year_of_birth": 1979,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Cillian",
+                        "surname": "Murphy",
+                        "year_of_birth": 1976,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Paul",
+                        "surname": "Anderson",
+                        "year_of_birth": 1978,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Jacob",
+                        "surname": "Fortune-Lloyd",
+                        "year_of_birth": 1988,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Shira",
+                        "surname": "Haas",
+                        "year_of_birth": 1995,
+                        "gender": "FEMALE"
+                    }]
+                },
+                "examples": [
+                    [{
+                        "name": "Michiel",
+                        "surname": "Huisman",
+                        "year_of_birth": 1981,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Carla",
+                        "surname": "Gugino",
+                        "year_of_birth": 1971,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Henry",
+                        "surname": "Thomas",
+                        "year_of_birth": 1971,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Freya",
+                        "surname": "Allan",
+                        "year_of_birth": 2001,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Henry",
+                        "surname": "Cavill",
+                        "year_of_birth": 1983,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Kiefer",
+                        "surname": "Sutherland",
+                        "year_of_birth": 1966,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Bill",
+                        "surname": "Pullman",
+                        "year_of_birth": 1953,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Dylan",
+                        "surname": "Minnette",
+                        "year_of_birth": 1996,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Katherine",
+                        "surname": "Langford",
+                        "year_of_birth": 1996,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Christian",
+                        "surname": "Navarro",
+                        "year_of_birth": 1991,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Omar",
+                        "surname": "Sy",
+                        "year_of_birth": 1978,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Alvaro",
+                        "surname": "Morte",
+                        "year_of_birth": 1975,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Itziar",
+                        "surname": "Otuno",
+                        "year_of_birth": 1974,
+                        "gender": "FEMALE"
+                    },
+                    {
+                        "name": "Pedro",
+                        "surname": "Alonso",
+                        "year_of_birth": 1972,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Kevin",
+                        "surname": "Spacey",
+                        "year_of_birth": 1959,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Michel",
+                        "surname": "Gill",
+                        "year_of_birth": 1960,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Robin",
+                        "surname": "Wright",
+                        "year_of_birth": 1966,
+                        "gender": "FEMALE"
+                    }],
+                    [{
+                        "name": "Johnatan",
+                        "surname": "Groff",
+                        "year_of_birth": 1985,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Holt",
+                        "surname": "McCallany",
+                        "year_of_birth": 1963,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Anna",
+                        "surname": "Torv",
+                        "year_of_birth": 1979,
+                        "gender": "FEMALE"
+                    }],
+                    [{
+                        "name": "Cillian",
+                        "surname": "Murphy",
+                        "year_of_birth": 1976,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Paul",
+                        "surname": "Anderson",
+                        "year_of_birth": 1978,
+                        "gender": "MALE"
+                    }],
+                    [{
+                        "name": "Jacob",
+                        "surname": "Fortune-Lloyd",
+                        "year_of_birth": 1988,
+                        "gender": "MALE"
+                    },
+                    {
+                        "name": "Shira",
+                        "surname": "Haas",
+                        "year_of_birth": 1995,
+                        "gender": "FEMALE"
+                    }]
+                ]
+            }
+        },
+        "examples": [{
+            "title": "The Haunting of Hill House",
+            "genre": "Horror",
+            "release_year": 2018,
+            "imdb_grade": 8.6,
+            "creator": "Mike Flanagan",
+            "number_of_episodes": 10,
+            "number_of_seasons": 1,
+            "actors": [{
+                "name": "Michiel",
+                "surname": "Huisman",
+                "year_of_birth": 1981,
+                "gender": "MALE"
+            },
+            {
+                "name": "Carla",
+                "surname": "Gugino",
+                "year_of_birth": 1971,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Henry",
+                "surname": "Thomas",
+                "year_of_birth": 1971,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "The Witcher",
+            "genre": "Adventure",
+            "release_year": 2019,
+            "imdb_grade": 8.0,
+            "creator": "Lauren Schmidt Hissrich",
+            "number_of_episodes": 25,
+            "number_of_seasons": 3,
+            "actors": [{
+                "name": "Freya",
+                "surname": "Allan",
+                "year_of_birth": 2001,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Henry",
+                "surname": "Cavill",
+                "year_of_birth": 1983,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Designated Survivor",
+            "genre": "Action",
+            "release_year": 2016,
+            "imdb_grade": 7.5,
+            "creator": "David Guggenheim",
+            "number_of_episodes": 53,
+            "number_of_seasons": 3,
+            "actors": [{
+                "name": "Kiefer",
+                "surname": "Sutherland",
+                "year_of_birth": 1966,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "The Sinner",
+            "genre": "Crime",
+            "release_year": 2017,
+            "imdb_grade": 7.9,
+            "creator": "Derek Simonds",
+            "number_of_episodes": 32,
+            "number_of_seasons": 4,
+            "actors": [{
+                "name": "Bill",
+                "surname": "Pullman",
+                "year_of_birth": 1953,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "13 Reasons Why",
+            "genre": "Drama",
+            "release_year": 2017,
+            "imdb_grade": 7.5,
+            "creator": "Brian Yorkey",
+            "number_of_episodes": 49,
+            "number_of_seasons": 4,
+            "actors": [{
+                "name": "Dylan",
+                "surname": "Minnette",
+                "year_of_birth": 1996,
+                "gender": "MALE"
+            },
+            {
+                "name": "Katherine",
+                "surname": "Langford",
+                "year_of_birth": 1996,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Christian",
+                "surname": "Navarro",
+                "year_of_birth": 1991,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Lupin",
+            "genre": "Action",
+            "release_year": 2021,
+            "imdb_grade": 7.5,
+            "creator": "George Kay",
+            "number_of_episodes": 17,
+            "number_of_seasons": 3,
+            "actors": [{
+                "name": "Omar",
+                "surname": "Sy",
+                "year_of_birth": 1978,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Money Heist",
+            "genre": "Action",
+            "release_year": 2017,
+            "imdb_grade": 8.2,
+            "creator": "Alex Pina",
+            "number_of_episodes": 41,
+            "number_of_seasons": 5,
+            "actors": [{
+                "name": "Alvaro",
+                "surname": "Morte",
+                "year_of_birth": 1975,
+                "gender": "MALE"
+            },
+            {
+                "name": "Itziar",
+                "surname": "Otuno",
+                "year_of_birth": 1974,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Pedro",
+                "surname": "Alonso",
+                "year_of_birth": 1972,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "House of Cards",
+            "genre": "Drama",
+            "release_year": 2013,
+            "imdb_grade": 8.7,
+            "creator": "Beau Willimon",
+            "number_of_episodes": 73,
+            "number_of_seasons": 6,
+            "actors": [{
+                "name": "Kevin",
+                "surname": "Spacey",
+                "year_of_birth": 1959,
+                "gender": "MALE"
+            },
+            {
+                "name": "Michel",
+                "surname": "Gill",
+                "year_of_birth": 1960,
+                "gender": "MALE"
+            },
+            {
+                "name": "Robin",
+                "surname": "Wright",
+                "year_of_birth": 1966,
+                "gender": "FEMALE"
+            }]
+        },
+        {
+            "title": "Mindhunter",
+            "genre": "Crime",
+            "release_year": 2017,
+            "imdb_grade": 8.6,
+            "creator": "Joe Penhall",
+            "number_of_episodes": 19,
+            "number_of_seasons": 2,
+            "actors": [{
+                "name": "Johnatan",
+                "surname": "Groff",
+                "year_of_birth": 1985,
+                "gender": "MALE"
+            },
+            {
+                "name": "Holt",
+                "surname": "McCallany",
+                "year_of_birth": 1963,
+                "gender": "MALE"
+            },
+            {
+                "name": "Anna",
+                "surname": "Torv",
+                "year_of_birth": 1979,
+                "gender": "FEMALE"
+            }]
+        },
+        {
+            "title": "Peaky Blinders",
+            "genre": "Crime",
+            "release_year": 2013,
+            "imdb_grade": 8.8,
+            "creator": "Otto Bathurst",
+            "number_of_episodes": 36,
+            "number_of_seasons": 6,
+            "actors": [{
+                "name": "Cillian",
+                "surname": "Murphy",
+                "year_of_birth": 1976,
+                "gender": "MALE"
+            },
+            {
+                "name": "Paul",
+                "surname": "Anderson",
+                "year_of_birth": 1978,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Bodies",
+            "genre": "Crime",
+            "release_year": 2023,
+            "imdb_grade": 7.5,
+            "creator": "Paul Tomalin",
+            "number_of_episodes": 8,
+            "number_of_seasons": 1,
+            "actors": [{
+                "name": "Jacob",
+                "surname": "Fortune-Lloyd",
+                "year_of_birth": 1988,
+                "gender": "MALE"
+            },
+            {
+                "name": "Shira",
+                "surname": "Haas",
+                "year_of_birth": 1995,
+                "gender": "FEMALE"
+            }]
+        }]
+    },
+    "examples": [
+        [{
+            "title": "The Haunting of Hill House",
+            "genre": "Horror",
+            "release_year": 2018,
+            "imdb_grade": 8.6,
+            "creator": "Mike Flanagan",
+            "number_of_episodes": 10,
+            "number_of_seasons": 1,
+            "actors": [{
+                "name": "Michiel",
+                "surname": "Huisman",
+                "year_of_birth": 1981,
+                "gender": "MALE"
+            },
+            {
+                "name": "Carla",
+                "surname": "Gugino",
+                "year_of_birth": 1971,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Henry",
+                "surname": "Thomas",
+                "year_of_birth": 1971,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "The Witcher",
+            "genre": "Adventure",
+            "release_year": 2019,
+            "imdb_grade": 8.0,
+            "creator": "Lauren Schmidt Hissrich",
+            "number_of_episodes": 25,
+            "number_of_seasons": 3,
+            "actors": [{
+                "name": "Freya",
+                "surname": "Allan",
+                "year_of_birth": 2001,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Henry",
+                "surname": "Cavill",
+                "year_of_birth": 1983,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Designated Survivor",
+            "genre": "Action",
+            "release_year": 2016,
+            "imdb_grade": 7.5,
+            "creator": "David Guggenheim",
+            "number_of_episodes": 53,
+            "number_of_seasons": 3,
+            "actors": [{
+                "name": "Kiefer",
+                "surname": "Sutherland",
+                "year_of_birth": 1966,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "The Sinner",
+            "genre": "Crime",
+            "release_year": 2017,
+            "imdb_grade": 7.9,
+            "creator": "Derek Simonds",
+            "number_of_episodes": 32,
+            "number_of_seasons": 4,
+            "actors": [{
+                "name": "Bill",
+                "surname": "Pullman",
+                "year_of_birth": 1953,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "13 Reasons Why",
+            "genre": "Drama",
+            "release_year": 2017,
+            "imdb_grade": 7.5,
+            "creator": "Brian Yorkey",
+            "number_of_episodes": 49,
+            "number_of_seasons": 4,
+            "actors": [{
+                "name": "Dylan",
+                "surname": "Minnette",
+                "year_of_birth": 1996,
+                "gender": "MALE"
+            },
+            {
+                "name": "Katherine",
+                "surname": "Langford",
+                "year_of_birth": 1996,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Christian",
+                "surname": "Navarro",
+                "year_of_birth": 1991,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Lupin",
+            "genre": "Action",
+            "release_year": 2021,
+            "imdb_grade": 7.5,
+            "creator": "George Kay",
+            "number_of_episodes": 17,
+            "number_of_seasons": 3,
+            "actors": [{
+                "name": "Omar",
+                "surname": "Sy",
+                "year_of_birth": 1978,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Money Heist",
+            "genre": "Action",
+            "release_year": 2017,
+            "imdb_grade": 8.2,
+            "creator": "Alex Pina",
+            "number_of_episodes": 41,
+            "number_of_seasons": 5,
+            "actors": [{
+                "name": "Alvaro",
+                "surname": "Morte",
+                "year_of_birth": 1975,
+                "gender": "MALE"
+            },
+            {
+                "name": "Itziar",
+                "surname": "Otuno",
+                "year_of_birth": 1974,
+                "gender": "FEMALE"
+            },
+            {
+                "name": "Pedro",
+                "surname": "Alonso",
+                "year_of_birth": 1972,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "House of Cards",
+            "genre": "Drama",
+            "release_year": 2013,
+            "imdb_grade": 8.7,
+            "creator": "Beau Willimon",
+            "number_of_episodes": 73,
+            "number_of_seasons": 6,
+            "actors": [{
+                "name": "Kevin",
+                "surname": "Spacey",
+                "year_of_birth": 1959,
+                "gender": "MALE"
+            },
+            {
+                "name": "Michel",
+                "surname": "Gill",
+                "year_of_birth": 1960,
+                "gender": "MALE"
+            },
+            {
+                "name": "Robin",
+                "surname": "Wright",
+                "year_of_birth": 1966,
+                "gender": "FEMALE"
+            }]
+        },
+        {
+            "title": "Mindhunter",
+            "genre": "Crime",
+            "release_year": 2017,
+            "imdb_grade": 8.6,
+            "creator": "Joe Penhall",
+            "number_of_episodes": 19,
+            "number_of_seasons": 2,
+            "actors": [{
+                "name": "Johnatan",
+                "surname": "Groff",
+                "year_of_birth": 1985,
+                "gender": "MALE"
+            },
+            {
+                "name": "Holt",
+                "surname": "McCallany",
+                "year_of_birth": 1963,
+                "gender": "MALE"
+            },
+            {
+                "name": "Anna",
+                "surname": "Torv",
+                "year_of_birth": 1979,
+                "gender": "FEMALE"
+            }]
+        },
+        {
+            "title": "Peaky Blinders",
+            "genre": "Crime",
+            "release_year": 2013,
+            "imdb_grade": 8.8,
+            "creator": "Otto Bathurst",
+            "number_of_episodes": 36,
+            "number_of_seasons": 6,
+            "actors": [{
+                "name": "Cillian",
+                "surname": "Murphy",
+                "year_of_birth": 1976,
+                "gender": "MALE"
+            },
+            {
+                "name": "Paul",
+                "surname": "Anderson",
+                "year_of_birth": 1978,
+                "gender": "MALE"
+            }]
+        },
+        {
+            "title": "Bodies",
+            "genre": "Crime",
+            "release_year": 2023,
+            "imdb_grade": 7.5,
+            "creator": "Paul Tomalin",
+            "number_of_episodes": 8,
+            "number_of_seasons": 1,
+            "actors": [{
+                "name": "Jacob",
+                "surname": "Fortune-Lloyd",
+                "year_of_birth": 1988,
+                "gender": "MALE"
+            },
+            {
+                "name": "Shira",
+                "surname": "Haas",
+                "year_of_birth": 1995,
+                "gender": "FEMALE"
+            }]
+        }]
+    ]
+}

@@ -28,17 +28,27 @@ def get_filtered():
     filter_text = request.args.get('txt', '')
     filter_polje = request.args.get('polje', '')
 
-    if(filter_polje.lower() != 'wildcard'):    
-        query = f"""select title, genre, release_year, imdb_grade, creator,
+    if(filter_polje.lower() != 'wildcard'): 
+        if(filter_polje != 'release_year' and filter_polje != 'imdb_grade' and filter_polje != 'number_of_seasons' and
+           filter_polje != 'number_of_episodes' and filter_polje != 'year_of_birth'):   
+         query = f"""select title, genre, release_year, imdb_grade, creator,
             number_of_episodes, number_of_seasons, name,
             surname, year_of_birth, gender     
             from shows join actors on actors.show_id = shows.show_id
-            where lower({filter_polje}) like lower('{filter_text}%')"""
+            where lower({filter_polje}) like lower('%{filter_text}%')"""
+        else:
+            query = f"""select title, genre, release_year, imdb_grade, creator,
+            number_of_episodes, number_of_seasons, name,
+            surname, year_of_birth, gender     
+            from shows join actors on actors.show_id = shows.show_id
+            where cast({filter_polje} as text) like '%{filter_text}%'"""
     else:
-        query = """select title, genre, release_year, imdb_grade, creator,
-        number_of_episodes, number_of_seasons, name,
-                 surname, year_of_birth, gender     
-      from shows join actors on actors.show_id = shows.show_id """
+           query = f"""select title, genre, release_year, imdb_grade, creator,
+            number_of_episodes, number_of_seasons, name,
+            surname, year_of_birth, gender     
+            from shows join actors on actors.show_id = shows.show_id
+            where lower(concat(title, genre, release_year, imdb_grade,
+            creator, number_of_episodes, number_of_seasons, name, surname, year_of_birth, gender)) like lower('%{filter_text}%')  """
     data = query_db(query)
     return jsonify(data)
 
@@ -47,17 +57,39 @@ def download_csv():
     filter_text = request.args.get('txt', '')
     filter_polje = request.args.get('polje', '')
 
-    if(filter_polje.lower() != 'wildcard'):    
-        query = f"""select title, genre, release_year, imdb_grade, creator,
+    # if(filter_polje.lower() != 'wildcard'):    
+    #     query = f"""select title, genre, release_year, imdb_grade, creator,
+    #         number_of_episodes, number_of_seasons, name,
+    #         surname, year_of_birth, gender     
+    #         from shows join actors on actors.show_id = shows.show_id
+    #         where lower({filter_polje}) like lower('{filter_text}%')"""
+    # else:
+    #     query = """select title, genre, release_year, imdb_grade, creator,
+    #     number_of_episodes, number_of_seasons, name,
+    #              surname, year_of_birth, gender     
+    #   from shows join actors on actors.show_id = shows.show_id """
+
+    if(filter_polje.lower() != 'wildcard'): 
+        if(filter_polje != 'release_year' and filter_polje != 'imdb_grade' and filter_polje != 'number_of_seasons' and
+           filter_polje != 'number_of_episodes' and filter_polje != 'year_of_birth'):   
+           query = f"""select title, genre, release_year, imdb_grade, creator,
             number_of_episodes, number_of_seasons, name,
             surname, year_of_birth, gender     
             from shows join actors on actors.show_id = shows.show_id
-            where lower({filter_polje}) like lower('{filter_text}%')"""
+            where lower({filter_polje}) like lower('%{filter_text}%')"""
+        else:
+            query = f"""select title, genre, release_year, imdb_grade, creator,
+            number_of_episodes, number_of_seasons, name,
+            surname, year_of_birth, gender     
+            from shows join actors on actors.show_id = shows.show_id
+            where cast({filter_polje} as text) like '%{filter_text}%'"""
     else:
-        query = """select title, genre, release_year, imdb_grade, creator,
-        number_of_episodes, number_of_seasons, name,
-                 surname, year_of_birth, gender     
-      from shows join actors on actors.show_id = shows.show_id """
+           query = f"""select title, genre, release_year, imdb_grade, creator,
+            number_of_episodes, number_of_seasons, name,
+            surname, year_of_birth, gender     
+            from shows join actors on actors.show_id = shows.show_id
+            where lower(concat(title, genre, release_year, imdb_grade,
+            creator, number_of_episodes, number_of_seasons, name, surname, year_of_birth, gender)) like lower('%{filter_text}%')  """
     
     data = query_db(query)
 
@@ -84,17 +116,39 @@ def download_json():
     filter_text = request.args.get('txt', '')
     filter_polje = request.args.get('polje', '')
 
-    if(filter_polje.lower() != 'wildcard'):    
-        query = f"""select title, genre, release_year, imdb_grade, creator,
+    # if(filter_polje.lower() != 'wildcard'):    
+    #     query = f"""select title, genre, release_year, imdb_grade, creator,
+    #         number_of_episodes, number_of_seasons, name,
+    #         surname, year_of_birth, gender     
+    #         from shows join actors on actors.show_id = shows.show_id
+    #         where lower({filter_polje}) like lower('{filter_text}%')"""
+    # else:
+    #     query = """select title, genre, release_year, imdb_grade, creator,
+    #     number_of_episodes, number_of_seasons, name,
+    #              surname, year_of_birth, gender     
+    #   from shows join actors on actors.show_id = shows.show_id """
+
+    if(filter_polje.lower() != 'wildcard'): 
+        if(filter_polje != 'release_year' and filter_polje != 'imdb_grade' and filter_polje != 'number_of_seasons' and
+           filter_polje != 'number_of_episodes' and filter_polje != 'year_of_birth'):   
+           query = f"""select title, genre, release_year, imdb_grade, creator,
             number_of_episodes, number_of_seasons, name,
             surname, year_of_birth, gender     
             from shows join actors on actors.show_id = shows.show_id
-            where lower({filter_polje}) like lower('{filter_text}%')"""
+            where lower({filter_polje}) like lower('%{filter_text}%')"""
+        else:
+            query = f"""select title, genre, release_year, imdb_grade, creator,
+            number_of_episodes, number_of_seasons, name,
+            surname, year_of_birth, gender     
+            from shows join actors on actors.show_id = shows.show_id
+            where cast({filter_polje} as text) like '%{filter_text}%'"""
     else:
-        query = """select title, genre, release_year, imdb_grade, creator,
-        number_of_episodes, number_of_seasons, name,
-                 surname, year_of_birth, gender     
-      from shows join actors on actors.show_id = shows.show_id """
+           query = f"""select title, genre, release_year, imdb_grade, creator,
+            number_of_episodes, number_of_seasons, name,
+            surname, year_of_birth, gender     
+            from shows join actors on actors.show_id = shows.show_id
+            where lower(concat(title, genre, release_year, imdb_grade,
+            creator, number_of_episodes, number_of_seasons, name, surname, year_of_birth, gender)) like lower('%{filter_text}%')  """
     
     data = query_db(query)
 
