@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TV Show List</title>
+    <link rel="stylesheet" type="text/css" href="static/styles/updateShow.css" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function fetchShowTitles() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/getShowTitles', true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var data = JSON.parse(xhr.responseText);
+                        updateShowList(data);
+                    }
+                };
+                xhr.send();
+            }
+
+            
+            function updateShowList(data) {
+    console.log('Received data:', data); 
+    var showListContainer = document.getElementById('showListContainer');
+    var dropdown = document.getElementById('showDropdown');
+
+
+    var undefinedOption = document.createElement('option');
+    undefinedOption.value = '';
+    undefinedOption.innerText = 'Select a TV Show';
+    dropdown.appendChild(undefinedOption);
+
+  
+    if (Array.isArray(data.data)) {
+        data.data.forEach(function (title) {
+            var option = document.createElement('option');
+            option.value = title.title;
+            option.innerText = title.title;
+            dropdown.appendChild(option);
+        });
+    } else {
+        console.error('Invalid data format:', data);
+    }
+
+
+    createForm();
+
+   
+    dropdown.addEventListener('change', function () {
+        createForm(dropdown.value);
+    });
+}
+
+            function createForm(selectedTitle) {
+                var titleContainer = document.getElementById('showListContainer');
+                var formContainer = document.getElementById('formContainer');
+
+             
+                if (formContainer) {
+                    titleContainer.removeChild(formContainer);
+                }
+
+             
+                formContainer = document.createElement('div');
+                formContainer.id = 'formContainer';
+                formContainer.className = 'form-container';
+
+               
+                var form = document.createElement('form');
+                form.id = 'showDetailsForm'; 
+                form.innerHTML = 
+                                '<label for="imdbGrade">IMDB Grade:</label>' +
+                                '<input type="text" id="imdbGrade" name="imdb_grade">' +
+                                '<label for="numEpisodes">Number of Episodes:</label>' +
+                                '<input type="text" id="numEpisodes" name="num_episodes">' +
+                                '<label for="numSeasons">Number of Seasons:</label>' +
+                                '<input type="text" id="numSeasons" name="num_seasons">' +
+                                '<button type="button" onclick="addNewActorForm()">Add New Actor</button>' +
+                                '<div id="actorFormContainer" class="actor-form-container"></div>' +
+                                '<button type="button" onclick="submitForm()">Update Details</button>';
+
+                formContainer.appendChild(form);
+
+                
+                titleContainer.appendChild(formContainer);
+            }
+
+           
+            fetchShowTitles();
+        });
+        function submitForm() {
+    var showDetailsForm = document.getElementById('showDetailsForm');
+    var formData = new FormData(showDetailsForm);
+
+
+    var selectedTitle = document.getElementById('showDropdown').value;
+
+  
+    formData.append('show_title', selectedTitle);
+    if (formData.get('imdb_grade') === '') {
+        formData.delete('imdb_grade');
+    }
+    if (formData.get('num_episodes') === '') {
+        formData.delete('num_episodes');
+    }
+    if (formData.get('num_seasons') === '') {
+        formData.delete('num_seasons');
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('PUT', '/updateShowDetails', true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                console.log(data);
+                
+                if (data.status === 'OK') {
+                    window.location.href = '/datatable';
+                } else {
+                    console.error('Error:', xhr.statusText);
+                }
+            } else {
+                console.error('Error:', xhr.statusText);
+            }
+        }
+    };
+
+    xhr.send(formData);
+}
+
+function addNewActorForm() {
+    var actorFormContainer = document.getElementById('actorFormContainer');
+    var actorForm = document.createElement('form');
+    actorForm.id = 'actorForm'; 
+    actorForm.innerHTML = `
+                <label for="actor_name">Actor Name:</label>
+                <input type="text" name="actor_name" required>
+
+                <label for="actor_surname">Actor Surname:</label>
+                <input type="text" name="actor_surname" required>
+
+                <label for="actor_birth_year">Actor Birth Year:</label>
+                <input type="number" name="actor_birth_year" required>
+
+                <label for="actor_gender[]">Actor Gender:</label>
+                <select name="actor_gender" required>
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+               </select>
+               '<button type="button" id="submitNewActorBtn" onclick="submitNewActor()">Submit New Actor</button>'; 
+            `;
+
+    actorFormContainer.appendChild(actorForm);
+    actorFormContainer.style.display = 'block'; 
+}
+
+function submitNewActor() {
+    var actorFormContainer = document.getElementById('actorFormContainer');
+    var actorForm = actorFormContainer.lastChild; 
+    var formData = new FormData(actorForm);
+
+    
+    var selectedTitle = document.getElementById('showDropdown').value;
+
+    
+    formData.append('show_title', selectedTitle);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('PUT', '/updateShowDetails', true);
+
+     xhr.onreadystatechange = function () {
+         if (xhr.readyState === 4) {
+             if (xhr.status === 200) {
+                 var data = JSON.parse(xhr.responseText);
+                 console.log(data);
+                window.location.reload(); 
+             } else {
+                 console.error('Error:', xhr.statusText);
+             }
+         }
+     };
+
+    xhr.send(formData);
+}
+
+    function returnToHome() {
+    window.location.href = '/';
+            }
+    </script>
+</head>
+<body>
+    <h1>Update TV Show</h1>
+    <div>
+        <label for="showDropdown">Select a TV Show You want to update:</label>
+        <select id="showDropdown"></select>
+    </div>
+    <div id="showListContainer"></div>
+    <button onclick="returnToHome()">Return to Home Page</button>
+</body>
+</html>
+

@@ -1,0 +1,369 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Netflix Shows API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/actors": {
+        "get": {
+          "summary": "Get list of actors",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "OK",
+                    "message": "Fetched actors list",
+                    "actors": [
+                      {
+                        "name": "John",
+                        "surname": "Doe",
+                        "year_of_birth": 1980,
+                        "gender": "Male",
+                        "show_title": "Example Show"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Actors list not found",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Not Found",
+                    "message": "Actors list was not found",
+                    "actors": null
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Internal Server Error",
+                    "message": "Error fetching actors list",
+                    "actors": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/getShowDetails/{show_id}": {
+        "get": {
+          "summary": "Get details of a show",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "show_id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "ID of the show"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "text/html": {
+                  "example": "HTML content for show details"
+                }
+              }
+            },
+            "404": {
+              "description": "Show not found",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Not Found",
+                    "message": "Show not found",
+                    "data": null
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Error",
+                    "message": "Error fetching show details",
+                    "data": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/addNewShow": {
+        "post": {
+          "summary": "Add a new show",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "genre": {
+                      "type": "string"
+                    },
+                    "release_year": {
+                      "type": "integer"
+                    },
+                    "imdb_grade": {
+                      "type": "number"
+                    },
+                    "creator": {
+                      "type": "string"
+                    },
+                    "number_of_episodes": {
+                      "type": "integer"
+                    },
+                    "number_of_seasons": {
+                      "type": "integer"
+                    },
+                    "actor_name": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "actor_surname": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "actor_birth_year": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    },
+                    "actor_gender": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful response",
+                "content": {
+                  "application/json": {
+                    "example": {
+                      "status": "OK",
+                      "message": "New Show Added Successfully!"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "application/json": {
+                    "example": {
+                      "status": "Error",
+                      "message": "Error adding show"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/getShowTitles": {
+        "get": {
+          "summary": "Get list of show titles",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "OK",
+                    "message": "Fetched show titles",
+                    "data": [
+                      {
+                        "show_id": 1,
+                        "title": "Example Show"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "No shows found",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Not Found",
+                    "message": "No shows found",
+                    "data": null
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Error",
+                    "message": "Error fetching shows",
+                    "data": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/delete_show/{show_id}": {
+        "delete": {
+          "summary": "Delete a show",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "show_id",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "ID of the show to delete"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "OK",
+                    "message": "Show deleted successfully"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Show not found",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Not Found",
+                    "message": "Show not found"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "status": "Error",
+                    "error": "Failed to delete show"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/updateShowDetails": {
+        "put": {
+          "summary": "Update show details",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "show_title": {
+                      "type": "string"
+                    },
+                    "imdb_grade": {
+                      "type": "number"
+                    },
+                    "num_episodes": {
+                      "type": "integer"
+                    },
+                    "num_seasons": {
+                      "type": "integer"
+                    },
+                    "actor_name": {
+                      "type": "string"
+                    },
+                    "actor_surname": {
+                      "type": "string"
+                    },
+                    "actor_birth_year": {
+                      "type": "integer"
+                    },
+                    "actor_gender": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful response",
+                "content": {
+                  "application/json": {
+                    "example": {
+                      "status": "OK",
+                      "message": "Show details updated successfully!"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "application/json": {
+                    "example": {
+                      "status": "Bad Request",
+                      "message": "Failed to update show details. Invalid input."
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "application/json": {
+                    "example": {
+                      "error": "Failed to update show details."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

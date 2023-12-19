@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="static/styles/addShow.css" />
+    <title>Add New Show</title>
+</head>
+<body>
+    <h1>Add New Show</h1>
+
+    <form id="addShowForm" action="/addNewShow" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required><br>
+
+        <label for="release_year">Release Year:</label>
+        <input type="number" id="release_year" name="release_year" required><br>
+
+        <label for="imdb_grade">IMDB Grade:</label>
+        <input type="text" id="imdb_grade" name="imdb_grade" required><br>
+
+        <label for="creator">Creator:</label>
+        <input type="text" id="creator" name="creator" required><br>
+
+        <label for="number_of_episodes">Number of Episodes:</label>
+        <input type="number" id="number_of_episodes" name="number_of_episodes" required><br>
+
+        <label for="number_of_seasons">Number of Seasons:</label>
+        <input type="number" id="number_of_seasons" name="number_of_seasons" required><br>
+
+        <h2>Actors:</h2>
+
+        <div id="actors">
+          
+        </div>
+
+        <button type="button" onclick="addActorField()">Add Actor</button>
+
+        <br>
+        <br>
+
+        <input type="submit" value="Submit">
+
+        <button onclick="returnToHome()">Return to Home Page</button>
+    </form>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var addShowForm = document.getElementById("addShowForm");
+    
+            addShowForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+    
+                var formData = new FormData(addShowForm);
+    
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/addNewShow", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        var responseData = JSON.parse(xhr.responseText);
+                        if (responseData.status === 'OK') {
+                        
+                            window.location.href = '/datatable';
+                        } else {
+                            console.error('Failed to add a new show:', responseData.message);
+                        }
+                    } else {
+                        console.error('Failed to add a new show. HTTP status:', xhr.status);
+                    }
+                };
+    
+                xhr.onerror = function () {
+                    console.error('Request failed');
+                };
+    
+                xhr.send(new URLSearchParams(formData));
+            });
+        });
+    
+        function addActorField() {
+            var actorsDiv = document.getElementById("actors");
+    
+            var actorField = document.createElement("div");
+    
+            actorField.innerHTML = `
+                <label for="actor_name">Actor Name:</label>
+                <input type="text" name="actor_name[]" required>
+    
+                <label for="actor_surname">Actor Surname:</label>
+                <input type="text" name="actor_surname[]" required>
+    
+                <label for="actor_birth_year">Actor Birth Year:</label>
+                <input type="number" name="actor_birth_year[]" required>
+    
+                <label for="actor_gender[]">Actor Gender:</label>
+                <select name="actor_gender[]" required>
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                    <option value="OTHER">OTHER</option>
+                </select>
+            `;
+    
+            actorsDiv.appendChild(actorField);
+        }
+    
+        function returnToHome() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

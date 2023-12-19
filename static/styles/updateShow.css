@@ -1,0 +1,60 @@
+body {
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #32cd32;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#showDetailsForm{
+    margin-top: 50px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #32cd32;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#actors {
+    margin-top: 10px;
+}
+
+#actors div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#actors label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#actors input, #actors select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}

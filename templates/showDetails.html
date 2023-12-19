@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .detail {
+            margin-bottom: 10px;
+        }
+        button {
+    background-color: #32cd32;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+    </style>
+    <script>
+                function returnToHome() {
+    window.location.href = '/';
+}
+    </script>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <div class="detail" id="genre"><strong>Genre:</strong> {{ genre }}</div>
+    <div class="detail" id="releaseYear"><strong>Release Year:</strong> {{ release_year }}</div>
+    <div class="detail" id="grade"><strong>IMDB Grade:</strong> {{ imdb_grade }}</div>
+    <div class="detail" id="creator"><strong>Creator:</strong> {{ creator }}</div>
+    <div class="detail" id="ep"><strong>Number of Episodes:</strong> {{ number_of_episodes }}</div>
+    <div class="detail" id="s"><strong>Number of Seasons:</strong> {{ number_of_seasons }}</div>
+    <div class="detail" id="actors"><strong>Actors:</strong> {{ actors }}</div>
+    <button onclick="returnToHome()">Return to Home Page</button>
+</body>
+</body>
+</html>

@@ -21,11 +21,24 @@
     </ul>
 
     <button id="redirectToDatatable">Go to Datatable Page</button>
+    <button id="listBtn">List of All TV Shows</button>
+    <button id="actorsBtn">List of All Actors</button>
 
     <script>
         $(document).ready(function() {
             $('#redirectToDatatable').on('click', function() {
                 window.location.href = '/datatable';
+            });
+        });
+
+        $(document).ready(function() {
+            $('#listBtn').on('click', function() {
+                window.location.href = '/showsList';
+            });
+        });
+        $(document).ready(function() {
+            $('#actorsBtn').on('click', function() {
+                window.location.href = '/actorsList';
             });
         });
     </script>

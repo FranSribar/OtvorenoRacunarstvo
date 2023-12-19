@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actors List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Actors List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Birth Year</th>
+                <th>Gender</th>
+                <th>Show</th>
+            </tr>
+        </thead>
+        <tbody id="actorsList"></tbody>
+    </table>
+    <button onclick="returnToHome()">Return to Home Page</button>
+    <script>
+    var xhr = new XMLHttpRequest();
+xhr.open('GET', '/actors', true);
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            var actorsResponse = JSON.parse(xhr.responseText);
+            if (actorsResponse.status === "OK") {
+                var actorsListContainer = document.getElementById('actorsList');
+                actorsResponse.actors.forEach(function(actor) {
+                    var row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${actor.name} ${actor.surname}</td>
+                        <td>${actor.year_of_birth}</td>
+                        <td>${actor.gender}</td>
+                        <td>${actor.show_title}</td>
+                    `;
+                    actorsListContainer.appendChild(row);
+                });
+            } else {
+                console.error('Error fetching actors list:', actorsResponse.message);
+            }
+        } else {
+            console.error('Request failed with status:', xhr.status);
+        }
+    }
+};
+xhr.send();
+function returnToHome() {
+    window.location.href = '/';
+}
+    </script>
+</body>
+</html>

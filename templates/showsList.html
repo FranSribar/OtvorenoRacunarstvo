@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="static/styles/deleteShow.css" />
+    <title>TV Shows List</title>
+</head>
+<body>
+    <h1>TV Shows List</h1>
+    <h2>Click on the TV Show to see more details</h2>
+    <ul id="showList"></ul>
+    <button onclick="returnToHome()">Return to Home Page</button>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/getShowTitles', true);
+    
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                try {
+                    var response = JSON.parse(xhr.responseText);
+    
+                    if (response && Array.isArray(response.data)) {
+                        var showTitles = response.data;
+                        var showList = document.getElementById('showList');
+    
+                      
+                        showTitles.forEach(function (show) {
+                            var li = document.createElement('li');
+                            li.appendChild(document.createTextNode(show.title));
+    
+                          
+                            li.onclick = function () {
+                                window.location.href = '/getShowDetails/' + show.show_id;
+                            };
+    
+                            showList.appendChild(li);
+                        });
+                    } else {
+                        console.error('Invalid response format. Expected an array:', response);
+                    }
+                } catch (error) {
+                    console.error('Error parsing JSON response:', error);
+                }
+            } else {
+                console.error('Failed to fetch show titles. HTTP status:', xhr.status);
+            }
+        };
+    
+        xhr.onerror = function () {
+            console.error('Request failed');
+        };
+    
+        xhr.send();
+    
+        function returnToHome() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

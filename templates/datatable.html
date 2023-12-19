@@ -54,6 +54,11 @@
     <button id="downloadCsv">Download Table in CSV Format</button>
     <button id="downloadJson">Download Table in JSON Format</button>
     </div>
+    <div class="newBtns">
+        <button id="post">Add New TV Show</button>
+        <button id="put">Update TV Show</button>
+        <button id="delete">Delete TV Show</button>
+        </div>
     <button id="redirectToIndex">Go to Index Page</button>
 
 
@@ -70,6 +75,15 @@
         });
             $('#redirectToIndex').on('click', function() {
                 window.location.href = '/';
+            });
+            $('#post').on('click', function() {
+                window.location.href = '/addShow';
+            });
+            $('#delete').on('click', function() {
+                window.location.href = '/deleteShow';
+            });
+            $('#put').on('click', function() {
+                window.location.href = '/updateShow';
             });
             $('#filterInput, #filterPolje').on('input', function() {
                 filterData();

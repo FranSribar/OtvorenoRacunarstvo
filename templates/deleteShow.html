@@ -1,0 +1,65 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="static/styles/deleteShow.css" />
+    <title>TV Show List</title>
+    <script>
+        
+        function deleteShow(showId) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('DELETE', '/delete_show/' + showId, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                
+                    fetchShowTitles();
+                }
+            };
+            xhr.send();
+        }
+
+        function fetchShowTitles() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/getShowTitles', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    updateShowList(data);
+                }
+            };
+            xhr.send();
+        }
+
+
+        function updateShowList(response) {
+
+    if (response.status === 'OK' && Array.isArray(response.data) && response.data.length > 0) {
+        var showList = '<ul>';
+        response.data.forEach(function (show) {
+            showList += '<li onclick="deleteShow(' + show.show_id + ')">' + show.title + '</li>';
+        });
+        showList += '</ul>';
+        document.getElementById('showListContainer').innerHTML = showList;
+    } else {
+        
+        document.getElementById('showListContainer').innerHTML = 'No shows found.';
+    }
+}
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchShowTitles();
+        });
+        function returnToHome() {
+    window.location.href = '/';
+}
+    </script>
+</head>
+<body>
+    <h1>Delete TV Shows</h1>
+    <h2>Click on the TV Show You want to delete</h2>
+    <div id="showListContainer">
+        
+    </div>
+
+    <button onclick="returnToHome()">Return to Home Page</button>
+</body>
+</html>
+

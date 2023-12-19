@@ -34,7 +34,9 @@ button {
     padding: 10px 15px;
     border: none;
     cursor: pointer;
-    margin-top: 70px;
+    margin-top: 50px;
     margin-left: 525px;
+    width: 150px;
+    height: 50px;
 }
 

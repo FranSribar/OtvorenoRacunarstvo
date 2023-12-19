@@ -1,0 +1,37 @@
+body {
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #32cd32;
+}
+
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #32cd32;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color:#f08080;
+}
+
+button {
+    background-color: #32cd32;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 70px;
+    margin-left: 525px;
+}
